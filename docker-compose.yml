@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./app
+    container_name: app
+    depends_on:
+      - redis
+    networks:
+      - chaos-net
+
+  redis:
+    image: redis:7
+    container_name: redis
+    networks:
+      - chaos-net
+
+  pumba:
+    image: gaiaadm/pumba:0.8.0
+    container_name: pumba
+    command: >
+      netem --duration 60s delay --time 1000 redis
+    networks:
+      - chaos-net
+    depends_on:
+      - redis
+    tty: true
+    stdin_open: true
+
+networks:
+  chaos-net:
