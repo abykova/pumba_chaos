@@ -29,6 +29,20 @@ pumba kill --signal SIGKILL redis
 Стресс по CPU
 pumba stress --cpu 1 app
 
+## Примеры запуска
+
+```bash
+make chaos-kill
+make chaos-delay
+make chaos-loss
+make chaos-cpu
+
+```
+Или вручную:
+
+```
+./scripts/run_scenario.sh kill.yaml
+```
 
 # планы на развитие:
 
