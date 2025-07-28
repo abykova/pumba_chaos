@@ -1,0 +1,8 @@
+name: netem-delay
+containers:
+  - name: my-app
+    action: netem
+    parameters:
+      delay: 200ms
+      jitter: 50ms
+    duration: 30s
