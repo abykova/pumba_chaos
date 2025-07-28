@@ -1,0 +1,7 @@
+name: kill-example
+containers:
+  - name: my-app
+    action: kill
+    signal: SIGKILL
+    interval: 10s
+    duration: 30s
